@@ -1,0 +1,46 @@
+{
+  "id": "foo-dev",
+  "endpoint": "http://localhost:9091/discovery/pzp",
+  "presentation_max_validity": 3600,
+  "presentation_definition": {
+    "id": "foo",
+    "format": {
+      "ldp_vc": {
+        "proof_type": [
+          "JsonWebSignature2020"
+        ]
+      },
+      "jwt_vc": {
+        "alg": [
+          "PS256"
+        ]
+      },
+      "jwt_vp": {
+        "alg": [
+          "ES256"
+        ]
+      }
+    },
+    "input_descriptors": [
+      {
+        "id": "id_registration_parameters_credential",
+        "name": "Registration parameters",
+        "purpose": "Finding endpoints registered by the care organization.",
+        "constraints": {
+          "fields": [
+            {
+              "id": "authorization_server_url",
+              "purpose": "Used by clients to request OAuth2 access tokens.",
+              "path": [
+                "$.credentialSubject.authServerURL"
+              ],
+              "filter": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

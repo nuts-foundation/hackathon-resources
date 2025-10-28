@@ -1,0 +1,28 @@
+{
+  "foo": {
+    "organization": {
+      "format": {
+        "ldp_vc": {
+          "proof_type": [
+            "JsonWebSignature2020"
+          ]
+        },
+        "jwt_vc": {
+          "alg": [
+            "PS256"
+          ]
+        },
+        "jwt_vp": {
+          "alg": [
+            "ES256"
+          ]
+        }
+      },
+      "id": "pd_any_care_organization",
+      "name": "Care organization",
+      "purpose": "Finding a care organization",
+      "input_descriptors": [
+      ]
+    }
+  }
+}
