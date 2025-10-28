@@ -1,0 +1,46 @@
+
+participant Raadpleger
+participant Dezi
+participant NVI
+participant LRZa
+participant Mitz
+participant Bronhouder
+
+group vooraf
+Bronhouder -> LRZa: B3
+Bronhouder -> NVI: B4
+Bronhouder -> Mitz: B5
+Raadpleger -> Raadpleger: R3
+end group
+
+group data request
+Raadpleger -> Dezi: R4
+Raadpleger -> NVI: R5 request
+activate NVI
+NVI -> Bronhouder: B6 request
+activate Bronhouder
+Bronhouder -> Mitz: B8
+Bronhouder --> NVI: B6 response
+deactivate Bronhouder
+NVI --> Raadpleger: R5 response
+deactivate NVI
+Raadpleger -> Raadpleger: R6
+Raadpleger -> Bronhouder: R7, R8
+activate Bronhouder
+Bronhouder -> Bronhouder: B7, B8
+Bronhouder --> Raadpleger: R9
+deactivate Bronhouder
+Mitz -> Bronhouder: B9
+Raadpleger -> Bronhouder: R10 request
+activate Bronhouder
+Bronhouder -> Bronhouder: B10
+Bronhouder --> Raadpleger: R10 response
+deactivate Bronhouder
+
+end group
+
+
+
+
+
+
