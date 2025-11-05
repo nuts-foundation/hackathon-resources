@@ -22,6 +22,12 @@
       "name": "Care organization",
       "purpose": "Finding a care organization",
       "input_descriptors": [
+        {
+          "id": "no_credentials",
+          "name": "This policy does not require credentials",
+          "purpose": "This policy does not require credentials.",
+          "constraints": {}
+        }
       ]
     }
   }
