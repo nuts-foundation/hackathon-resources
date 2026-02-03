@@ -69,20 +69,20 @@
         },
         {
           "id": "id_providertype_credential",
-          "name": "Healthcare provider type credential",
-          "purpose": "Finding the type of healthcare provider for authorizing access to medical metadata.",
+          "name": "Healthcare provider role type credential",
+          "purpose": "Finding the category or type of healthcare services a provider organization is authorized to offer.",
           "constraints": {
             "fields": [
               {
                 "path": ["$.type"],
                 "filter": {
                   "type": "string",
-                  "const": "HealthcareProviderTypeCredential"
+                  "const": "HealthcareProviderRoleTypeCredential"
                 }
               },
               {
-                "id": "healthcare_provider_type",
-                "path": ["$.credentialSubject[0].healthcareProviderType", "$.credentialSubject.healthcareProviderType"]
+                "id": "healthcare_provider_role_type",
+                "path": ["$.credentialSubject[0].roleCodeNL", "$.credentialSubject.roleCodeNL"]
               }
             ]
           }
