@@ -21,7 +21,7 @@
       },
       "id": "pd_any_care_organization",
       "name": "Care organization",
-      "purpose": "Finding a care organization",
+      "purpose": "Finding a care organization and practitioner",
       "input_descriptors": [
         {
           "id": "id_uzicert_uracredential",
@@ -159,6 +159,76 @@
                 "path": [
                   "$.credentialSubject[0].roleCode",
                   "$.credentialSubject.roleCode"
+                ],
+                "filter": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "id_dezicredential",
+          "constraints": {
+            "fields": [
+              {
+                "path": [
+                  "$.type"
+                ],
+                "filter": {
+                  "type": "string",
+                  "const": "DeziIDTokenCredential"
+                }
+              },
+              {
+                "id": "organization_ura_dezi",
+                "path": [
+                  "$.credentialSubject.identifier"
+                ],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "user_uzi",
+                "path": [
+                  "$.credentialSubject.employee.identifier"
+                ],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "user_initials",
+                "path": [
+                  "$.credentialSubject.employee.initials"
+                ],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "user_surname",
+                "path": [
+                  "$.credentialSubject.employee.surname"
+                ],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "user_surname_prefix",
+                "path": [
+                  "$.credentialSubject.employee.surnamePrefix"
+                ],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "user_roles",
+                "path": [
+                  "$.credentialSubject.employee.roles"
                 ],
                 "filter": {
                   "type": "string"
