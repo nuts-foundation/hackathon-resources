@@ -81,7 +81,7 @@
                 }
               },
               {
-                "id": "healthcare_provider_role_type",
+                "id": "organization_facility_type",
                 "path": ["$.credentialSubject[0].roleCodeNL", "$.credentialSubject.roleCodeNL"]
               }
             ]
