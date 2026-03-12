@@ -190,7 +190,7 @@
                 }
               },
               {
-                "id": "user_uzi",
+                "id": "user_id",
                 "path": [
                   "$.credentialSubject.employee.identifier"
                 ],
@@ -226,8 +226,9 @@
                 }
               },
               {
-                "id": "user_roles",
+                "id": "user_role",
                 "path": [
+                  "$.credentialSubject.employee.roles[0]",
                   "$.credentialSubject.employee.roles"
                 ],
                 "filter": {
