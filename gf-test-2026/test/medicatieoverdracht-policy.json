@@ -207,7 +207,7 @@
                 }
               },
               {
-                "id": "user_uzi",
+                "id": "user_id",
                 "path": [
                   "$.credentialSubject.employee.identifier"
                 ],
