@@ -22,11 +22,25 @@
       "id": "pd_any_care_organization",
       "name": "Care organization",
       "purpose": "Finding a care organization and practitioner",
+      "submission_requirements": [
+        {
+          "name": "Required credentials",
+          "rule": "all",
+          "from": "required"
+        },
+        {
+          "name": "Optional credentials",
+          "rule": "pick",
+          "min": 0,
+          "from": "optional"
+        }
+      ],
       "input_descriptors": [
         {
           "id": "id_uzicert_uracredential",
           "name": "Care organization identity from fake UZI-server certificate",
           "purpose": "Finding a care organization for authorizing access to medical metadata.",
+          "group": ["required"],
           "constraints": {
             "fields": [
               {
@@ -76,6 +90,7 @@
         {
           "id": "id_patient_enrollment",
           "name": "The patient enrollment credential",
+          "group": ["required"],
           "constraints": {
             "fields": [
               {
@@ -123,6 +138,7 @@
         {
           "id": "id_healthcare_professional_delegation",
           "name": "The healthcare professional delegation credential",
+          "group": ["required"],
           "constraints": {
             "fields": [
               {
@@ -169,6 +185,7 @@
         },
         {
           "id": "id_dezicredential",
+          "group": ["optional"],
           "constraints": {
             "fields": [
               {
@@ -177,7 +194,7 @@
                 ],
                 "filter": {
                   "type": "string",
-                  "const": "DeziIDTokenCredential"
+                  "const": "DeziUserCredential"
                 }
               },
               {
@@ -226,9 +243,9 @@
                 }
               },
               {
-                "id": "user_roles",
+                "id": "user_role",
                 "path": [
-                  "$.credentialSubject.employee.roles"
+                  "$.credentialSubject.employee.role"
                 ],
                 "filter": {
                   "type": "string"
