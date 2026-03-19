@@ -29,10 +29,10 @@
           "from": "required"
         },
         {
-          "name": "Optional credentials",
+          "name": "User identity",
           "rule": "pick",
           "min": 0,
-          "from": "optional"
+          "from": "user-identity"
         }
       ],
       "input_descriptors": [
@@ -185,7 +185,7 @@
         },
         {
           "id": "id_dezicredential",
-          "group": ["optional"],
+          "group": ["user-identity"],
           "constraints": {
             "fields": [
               {
