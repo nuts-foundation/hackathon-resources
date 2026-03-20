@@ -32,6 +32,7 @@
           "name": "User identity",
           "rule": "pick",
           "min": 0,
+          "max": 10,
           "from": "user-identity"
         }
       ],
