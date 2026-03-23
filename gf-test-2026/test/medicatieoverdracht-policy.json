@@ -4,7 +4,8 @@
       "format": {
         "ldp_vc": {
           "proof_type": [
-            "JsonWebSignature2020"
+            "JsonWebSignature2020",
+            "DeziIDJWT07"
           ]
         },
         "jwt_vc": {
