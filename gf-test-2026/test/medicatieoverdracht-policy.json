@@ -11,12 +11,15 @@
         "jwt_vc": {
           "alg": [
             "PS256",
-            "RS256"
+            "RS256",
+            "ES256"
           ]
         },
         "jwt_vp": {
           "alg": [
-            "ES256"
+            "ES256",
+            "PS256",
+            "RS256"
           ]
         }
       },
@@ -39,8 +42,8 @@
       ],
       "input_descriptors": [
         {
-          "id": "id_uzicert_uracredential",
-          "name": "Care organization identity from fake UZI-server certificate",
+          "id": "id_uzicert_orgcredential",
+          "name": "Care organization identity from UZI-server certificate",
           "purpose": "Finding a care organization for authorizing access to medical metadata.",
           "group": ["required"],
           "constraints": {
@@ -51,7 +54,7 @@
                 ],
                 "filter": {
                   "type": "string",
-                  "const": "X509Credential"
+                  "const": "HealthcareOrganizationCredential"
                 }
               },
               {
@@ -68,8 +71,8 @@
               {
                 "id": "organization_name",
                 "path": [
-                  "$.credentialSubject[0].subject.O",
-                  "$.credentialSubject.subject.O"
+                  "$.credentialSubject[0].organization.name",
+                  "$.credentialSubject.organization.name"
                 ],
                 "filter": {
                   "type": "string"
@@ -78,13 +81,9 @@
               {
                 "id": "organization_ura",
                 "path": [
-                  "$.credentialSubject[0].san.otherName",
-                  "$.credentialSubject.san.otherName"
-                ],
-                "filter": {
-                  "type": "string",
-                  "pattern": "^[0-9.]+-\\d+-\\d+-S-(\\d+)-00\\.000-\\d+$"
-                }
+                  "$.credentialSubject[0].organization.ura",
+                  "$.credentialSubject.organization.ura"
+                ]
               }
             ]
           }
@@ -177,6 +176,16 @@
                 "path": [
                   "$.credentialSubject[0].roleCode",
                   "$.credentialSubject.roleCode"
+                ],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "delegation_authorization_rule",
+                "path": [
+                  "$.credentialSubject[0].authorizationRule",
+                  "$.credentialSubject.authorizationRule"
                 ],
                 "filter": {
                   "type": "string"
