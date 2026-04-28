@@ -89,6 +89,27 @@
           }
         },
         {
+          "id": "id_providertype_credential",
+          "name": "The healthcare provider role type credential",
+          "purpose": "Finding the category or type of healthcare services a provider organization is authorized to offer.",
+          "group": ["required"],
+          "constraints": {
+            "fields": [
+              {
+                "path": ["$.type"],
+                "filter": {
+                  "type": "string",
+                  "const": "HealthcareProviderRoleTypeCredential"
+                }
+              },
+              {
+                "id": "organization_facility_type",
+                "path": ["$.credentialSubject[0].roleCodeNL", "$.credentialSubject.roleCodeNL"]
+              }
+            ]
+          }
+        },
+        {
           "id": "id_patient_enrollment",
           "name": "The patient enrollment credential",
           "group": ["required"],
